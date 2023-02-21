@@ -18,12 +18,13 @@ main = hspec $ do
             compare_float output0 2.3
         it "weight * input + bias (example 2)" $ do 
             compare_float output1 4.8
-    describe "dot tests" $ do 
+    describe "Math.hs" $ do 
         it "tests an empty list" $ do 
             dot empty_float_list empty_float_list `shouldBe` 0
         it "tests elements with 1 value" $ do 
             compare_float (dot [1.0] [1.0]) 1.0 
-    describe "multiple neurons" $ do 
+    describe "NN.hs" $ do 
         it "test ouptut of 3 neurons" $ do 
-            all id $ map (\(x,y) -> compare_float x y) $ zip outputs [4.8, 1.21, 2.385] 
+            all id . map (\(x,y) -> compare_float x y) 
+                . zip outputs $ [4.8, 1.21, 2.385] 
 

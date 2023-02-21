@@ -6,3 +6,4 @@ dot (x:[]) (y:[]) = x*y
 dot (x:xs) (y:ys) = x*y + dot xs ys 
 
 
+
